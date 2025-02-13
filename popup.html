@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Phi Dictionary</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .search-container {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    #searchInput {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-right: 5px;
+    }
+    #searchButton {
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #searchButton:hover {
+      background-color: #45a049;
+    }
+    #result {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="输入要查询的单词...">
+    <button id="searchButton">查询</button>
+  </div>
+  <div id="result"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
