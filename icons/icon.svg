@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+    <!-- 笔记本主体 -->
+    <g transform="translate(20 15)">
+        <!-- 封面 -->
+        <rect x="0" y="0" width="60" height="70" rx="5" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+        
+        <!-- 内页线条 -->
+        <g stroke="#94a3b8" stroke-width="1">
+            <line x1="5" y1="10" x2="55" y2="10"/>
+            <line x1="5" y1="20" x2="55" y2="20"/>
+            <line x1="5" y1="30" x2="55" y2="30"/>
+        </g>
+        
+        <!-- 拟人化笑脸 -->
+        <g transform="translate(20 45)">
+            <circle cx="10" cy="0" r="2" fill="#1e293b"/>
+            <circle cx="30" cy="0" r="2" fill="#1e293b"/>
+            <path d="M12 15 q8 6 16 0" fill="none" stroke="#1e293b" stroke-width="2"/>
+        </g>
+    </g>
+
+    <!-- 发光灯泡 -->
+    <g transform="translate(70 15)">
+        <!-- 灯泡光芒 -->
+        <g stroke="#facc15" stroke-width="2" stroke-linecap="round" opacity="0.8">
+            <line x1="10" y1="10" x2="10" y2="3" transform="rotate(0 10 10)"/>
+            <line x1="10" y1="10" x2="10" y2="3" transform="rotate(45 10 10)"/>
+            <line x1="10" y1="10" x2="10" y2="3" transform="rotate(90 10 10)"/>
+            <line x1="10" y1="10" x2="10" y2="3" transform="rotate(135 10 10)"/>
+            <line x1="10" y1="10" x2="10" y2="3" transform="rotate(180 10 10)"/>
+            <line x1="10" y1="10" x2="10" y2="3" transform="rotate(225 10 10)"/>
+            <line x1="10" y1="10" x2="10" y2="3" transform="rotate(270 10 10)"/>
+            <line x1="10" y1="10" x2="10" y2="3" transform="rotate(315 10 10)"/>
+        </g>
+        
+        <!-- 灯泡主体 -->
+        <circle cx="10" cy="10" r="8" fill="#facc15"/>
+        <path d="M6 18 l8 0 2 6 h-12 l2-6" fill="#f59e0b"/>
+    </g>
+</svg>
