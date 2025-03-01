@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
       this.classList.add('active');
       const targetPanel = this.getAttribute('data-panel');
       document.getElementById(`${targetPanel}Panel`).classList.add('active');
+
+      // 切换面板时清空结果
+      resultDiv.innerHTML = '';
+      resultDiv.classList.remove('has-content');
+      translateResult.innerHTML = '';
+      translateResult.classList.remove('has-content');
     });
   });
 
@@ -39,10 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // 处理翻译按钮点击事件
   translateButton.addEventListener('click', performTranslate);
 
-  function performSearch() {
+  async function performSearch() {
     const word = searchInput.value.trim();
     if (!word) {
       resultDiv.innerHTML = '请输入要查询的单词';
+      resultDiv.classList.add('has-content');
       return;
     }
 
@@ -65,24 +72,42 @@ document.addEventListener('DOMContentLoaded', function() {
           });
           
           resultDiv.innerHTML = html;
+          resultDiv.classList.add('has-content');
         } else {
           resultDiv.innerHTML = '未找到该单词的释义';
+          resultDiv.classList.add('has-content');
         }
       })
       .catch(error => {
         resultDiv.innerHTML = '查询出错，请稍后重试';
+        resultDiv.classList.add('has-content');
         console.error('Error:', error);
       });
   }
 
-  function performTranslate() {
+  async function performTranslate() {
     const text = translateInput.value.trim();
     if (!text) {
       translateResult.innerHTML = '请输入要翻译的文本';
+      translateResult.classList.add('has-content');
       return;
     }
 
-    // 翻译功能的具体实现将在后续添加
-    translateResult.innerHTML = '翻译功能即将上线...';
+    try {
+      // 显示加载状态
+      translateButton.disabled = true;
+      translateResult.innerHTML = '翻译中...';
+      translateResult.classList.add('has-content');
+
+      // 调用翻译服务
+      const result = await window.translationService.translate(text);
+      translateResult.innerHTML = result.replace(/\n/g, '<br>');
+      translateResult.classList.add('has-content');
+    } catch (error) {
+      translateResult.innerHTML = error.message || '翻译失败，请稍后重试';
+      translateResult.classList.add('has-content');
+    } finally {
+      translateButton.disabled = false;
+    }
   }
 });

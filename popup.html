@@ -54,7 +54,7 @@
     }
 
     .content {
-      padding: 16px;
+      padding: 12px;
     }
 
     .panel {
@@ -68,6 +68,7 @@
     .search-container {
       display: flex;
       margin-bottom: 10px;
+      gap: 8px;
     }
 
     #searchInput {
@@ -75,33 +76,52 @@
       padding: 8px;
       border: 1px solid #ddd;
       border-radius: 4px;
-      margin-right: 5px;
     }
 
     #searchButton {
-      padding: 8px 15px;
+      padding: 8px 16px;
       background-color: #4CAF50;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      min-width: 64px;
     }
 
     #searchButton:hover {
       background-color: #45a049;
     }
 
-    #result {
+    #result, #translateResult {
       margin-top: 10px;
       padding: 10px;
       border: 1px solid #ddd;
       border-radius: 4px;
       max-height: 300px;
       overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+      white-space: pre-line;
+      display: none;
+    }
+
+    #result.has-content, #translateResult.has-content {
+      display: block;
+    }
+
+    #result h3 {
+      margin: 0 0 10px 0;
+      color: #333;
+      font-size: 16px;
+    }
+
+    #result p {
+      margin: 5px 0;
     }
 
     #translateInput {
-      width: 100%;
+      width: calc(100% - 16px);
       height: 100px;
       padding: 8px;
       border: 1px solid #ddd;
@@ -111,13 +131,16 @@
     }
 
     #translateButton {
-      width: 100%;
-      padding: 8px 15px;
+      width: auto;
+      padding: 8px 16px;
       background-color: #4CAF50;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      min-width: 128px;
+      margin: 0 auto;
+      display: block;
     }
 
     #translateButton:hover {

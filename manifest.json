@@ -1,12 +1,16 @@
 {
   "manifest_version": 3,
   "name": "Phi Dictionary",
-  "version": "1.0",
-  "description": "A simple and elegant dictionary extension for Chrome",
+  "version": "2.0",
+  "description": "A Chrome extension for dictionary lookup and translation using Ollama's Phi model",
   "permissions": [
+    "contextMenus",
     "storage",
-    "activeTab",
-    "contextMenus"
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://47.101.144.137:11434/*",
+    "https://api.dictionaryapi.dev/*"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -20,6 +24,9 @@
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' http://47.101.144.137:11434 https://api.dictionaryapi.dev"
   },
   "content_scripts": [
     {
